@@ -2,58 +2,62 @@ import pygame
 import random
 import time
 
-pygame.init()
+def run_experiment():
 
-dim = 500
+    pygame.init()
 
-win = pygame.display.set_mode((dim, dim))
+    dim = 500
 
-pygame.display.set_caption("Snake")
+    win = pygame.display.set_mode((dim, dim))
 
-r1 = 0
-r2 = 0
+    pygame.display.set_caption("Colour show")
 
-rc1 = 0
-rc2 = 0
-rc3 = 0 
+    r1 = 0
+    r2 = 0
 
-dim1 = 0
-dim2 = 0
+    rc1 = 0
+    rc2 = 0
+    rc3 = 0 
 
-i = 0
+    dim1 = 0
+    dim2 = 0
 
-time.sleep(10)
+    i = 0
 
-run = True
-while run:
+    time.sleep(10)
 
-    for event in pygame.event.get():
-        if event.type == pygame.QUIT:
-            run = False  
+    run = True
+    while run:
 
-    #for i in range(5):
+        for event in pygame.event.get():
+            if event.type == pygame.QUIT:
+                run = False  
 
-    dim1 = random.randint(10, 10)
-    dim2 = random.randint(10, 10)
+        #for i in range(5):
 
-    r1 = random.randint(0, dim-20)
-    r1 = (r1*20)%1000
-    r2 = random.randint(0, dim-20)
-    r2 = (r2*20)%1000
+        dim1 = random.randint(10, 10)
+        dim2 = random.randint(10, 10)
 
-    rc1 = random.randint(0, 255)
-    rc2 = random.randint(0, 255)
-    rc3 = random.randint(0, 255)
+        r1 = random.randint(0, dim-20)
+        r1 = (r1*20)%1000
+        r2 = random.randint(0, dim-20)
+        r2 = (r2*20)%1000
 
-    if i > 20000:
-        rc1 = 0
-        rc2 = 0
-        rc3 = 0
+        rc1 = random.randint(0, 255)
+        rc2 = random.randint(0, 255)
+        rc3 = random.randint(0, 255)
 
-    if i < 100000:
-        pygame.draw.rect(win, (rc1, rc2, rc3), (r1, r2, dim1, dim2))
+        if i > 20000:
+            rc1 = 0
+            rc2 = 0
+            rc3 = 0
 
-        pygame.display.update()
-    i +=1
+        if i < 100000:
+            pygame.draw.rect(win, (rc1, rc2, rc3), (r1, r2, dim1, dim2))
 
-pygame.quit()
+            pygame.display.update()
+        i +=1
+
+    pygame.quit()
+
+run_experiment()
