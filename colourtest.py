@@ -12,28 +12,14 @@ def run_experiment():
 
     pygame.display.set_caption("Colour show")
 
-    r1 = 0
-    r2 = 0
-
-    rc1 = 0
-    rc2 = 0
-    rc3 = 0 
-
-    dim1 = 0
-    dim2 = 0
-
-    i = 0
-
-    time.sleep(10)
+    r1, r2, rc1, rc2, rc3, dim1, dim2, i = 0, 0, 0, 0, 0, 0, 0, 0
 
     run = True
     while run:
 
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
-                run = False  
-
-        #for i in range(5):
+                run = False 
 
         dim1 = random.randint(10, 10)
         dim2 = random.randint(10, 10)
@@ -48,13 +34,10 @@ def run_experiment():
         rc3 = random.randint(0, 255)
 
         if i > 20000:
-            rc1 = 0
-            rc2 = 0
-            rc3 = 0
+            rc1 = rc2 = rc3 = 0
 
         if i < 100000:
             pygame.draw.rect(win, (rc1, rc2, rc3), (r1, r2, dim1, dim2))
-
             pygame.display.update()
         i +=1
 
